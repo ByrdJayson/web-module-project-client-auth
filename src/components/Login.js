@@ -19,7 +19,7 @@ function Login(props) {
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('username', res.data.username);
             localStorage.setItem('role', res.data.role);
-            //push('/friendsList');
+            push('/friendsList');
             
         })
         .catch(err => {
