@@ -1,23 +1,35 @@
 import React, { useState } from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth';
-
+import { useHistory } from 'react-router-dom';
 
 const initialLoginForm = {
     username: '',
     password: ''
 }
 
-function Login() {
+function Login(props) {
 
     const [formValues, setFormValues] = useState(initialLoginForm);
-
-    const login = () => {
+    const { push } = useHistory();
+    const login = (props) => {
+        
         axiosWithAuth().post('/login', formValues)
         .then(res => {
             console.log(res);
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('username', res.data.username);
+            localStorage.setItem('role', res.data.role);
+            //push('/friendsList');
+            
         })
+        .catch(err => {
+            console.error(err);
+        })
+        
+        
     }
+
+    localStorage.getItem('token') && push('/friendsList');
 
     const onChange = (e) => {
         setFormValues({
