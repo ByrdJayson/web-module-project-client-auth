@@ -29,7 +29,7 @@ function Login(props) {
         
     }
 
-    localStorage.getItem('token') && push('/friends');
+    
 
     const onChange = (e) => {
         setFormValues({

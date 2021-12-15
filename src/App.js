@@ -4,10 +4,10 @@ import { BrowserRouter, BrowserRouter as Router, useHistory, Route, Link , Switc
 import Login from './components/Login.js'
 import FriendsList from './components/FriendsList';
 import AddFriends from './components/AddFriends';
+import Logout from './components/Logout';
+import PrivateRoute from './components/PrivateRoute';
 function App(props) {
-  const logout = () => {
-
-  }
+  
 
 
 
@@ -21,15 +21,15 @@ function App(props) {
         
           <Router>
             
-            <Route path='/friends/add' component={AddFriends}/>
-            <Route path='/friends' component={FriendsList}/>
-            <Route path='/login' component={Login}/>
-
+            <Route exact path='/friends/add' component={AddFriends}/>
+            <Route exact path='/friends' component={FriendsList}/>
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/logout' component={Logout}/>
           </Router>
       
       
     </div>
   );
 }
-
+// TODO SWITCH ABOVE - TRYING TO FIGURE OUT WHY PUSH DOES NOT UPDATE COMPONENTS
 export default App;
