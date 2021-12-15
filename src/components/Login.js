@@ -19,7 +19,7 @@ function Login(props) {
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('username', res.data.username);
             localStorage.setItem('role', res.data.role);
-            push('/friendsList');
+            push('/friends');
             
         })
         .catch(err => {
@@ -29,7 +29,7 @@ function Login(props) {
         
     }
 
-    localStorage.getItem('token') && push('/friendsList');
+    localStorage.getItem('token') && push('/friends');
 
     const onChange = (e) => {
         setFormValues({

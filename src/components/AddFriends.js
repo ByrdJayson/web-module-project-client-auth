@@ -23,7 +23,7 @@ function AddFriends(props) {
         e.preventDefault();
         axiosWithAuth().post('/friends', newFriend)
         .then(() => {
-            push('/friendsList')
+            push('/friends')
         });
 
     }

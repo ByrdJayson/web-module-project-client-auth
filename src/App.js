@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, BrowserRouter as Router, useHistory, Route, Link , Switch} from 'react-router-dom';
 import Login from './components/Login.js'
 import FriendsList from './components/FriendsList';
 import AddFriends from './components/AddFriends';
-function App() {
+function App(props) {
+  const { push } = useHistory();
+  const logout = () => {
+
+  }
+
+
+
+
   return (
     <div className="App">
       <h1>Friends List Test App - Client Auth</h1>
-      
+      <nav>
+        <Link to={'/friends'}>Friends List</Link>
+        <Link to={'/friends/add'}>Add Friend</Link>
+      </nav>
       <Router>
         <Switch>
-          <Route exact path='/' component={Login}/>
-          <Route path='/friendsList' component={FriendsList}/>
-          <Route path='/addFriends' component={AddFriends}/>
+        <Route path='/friends/add' component={AddFriends}/>
+        <Route path='/friends' component={FriendsList}/>
+        <Route path='/' component={Login}/>
+          
+          
         </Switch>
 
       </Router>
