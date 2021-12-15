@@ -1,19 +1,15 @@
 import React, { useState } from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-const creds = {
-    username: '',
-    password: ''
-}
 
-const initialForm = {
+const initialLoginForm = {
     username: '',
     password: ''
 }
 
 function Login() {
 
-    const [formValues, setFormValues] = useState(initialForm);
+    const [formValues, setFormValues] = useState(initialLoginForm);
 
     const login = () => {
         axiosWithAuth().post('/login', formValues)
