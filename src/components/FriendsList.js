@@ -23,10 +23,10 @@ function FriendsList() {
             <div>
                 <h1>Friends List</h1>        
             </div>
-            <div className='friends'>
+            {!friends ? 'Loading' : <div className='friends'>
                 {friends.map(friend => {
                     return (
-                        <div key={friend.id} className='friend'>
+                        friends && <div key={friend.id} className='friend'>
                             <h2>{friend.name}</h2>
                             <span>{friend.age}</span>
                             <p>{friend.email}</p>
@@ -34,7 +34,7 @@ function FriendsList() {
                         </div>
                     )
                 })}
-            </div>
+            </div>}
         </>
         
     )
