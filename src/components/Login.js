@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const creds = {
     username: '',
@@ -14,15 +15,24 @@ function Login() {
 
     const [formValues, setFormValues] = useState(initialForm);
 
+    const login = () => {
+        axiosWithAuth().post('/login', formValues)
+        .then(res => {
+            console.log(res);
+        })
+    }
+
     const onChange = (e) => {
         setFormValues({
             ...formValues,
             [e.target.name]: e.target.value
             
         });
-        console.log(e);
-        console.log(e.target);
-        console.log(e.target.value);
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        login(formValues);
     }
 
     return (
@@ -31,7 +41,7 @@ function Login() {
             <h1>Login</h1>
         </div>
         <div className='login-form form'>
-            <form>
+            <form onSubmit={onSubmit}>
                 <div>
                     <label htmlFor='username'>Username:</label>
                     <input name='username' type='text' value={formValues.username} onChange={onChange}/>
