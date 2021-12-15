@@ -5,7 +5,6 @@ import Login from './components/Login.js'
 import FriendsList from './components/FriendsList';
 import AddFriends from './components/AddFriends';
 function App(props) {
-  const { push } = useHistory();
   const logout = () => {
 
   }
@@ -16,20 +15,17 @@ function App(props) {
   return (
     <div className="App">
       <h1>Friends List Test App - Client Auth</h1>
-      <nav>
-        <Link to={'/friends'}>Friends List</Link>
-        <Link to={'/friends/add'}>Add Friend</Link>
-      </nav>
-      <Router>
-        <Switch>
-        <Route path='/friends/add' component={AddFriends}/>
-        <Route path='/friends' component={FriendsList}/>
-        <Route path='/' component={Login}/>
-          
-          
-        </Switch>
+        
+          <Link to='/friends'>Friends</Link>
+          <Link to='/friends/add'>Add a Friend</Link>
+        
+          <Router>
+            
+            <Route path='/friends/add' component={AddFriends}/>
+            <Route path='/friends' component={FriendsList}/>
+            <Route path='/login' component={Login}/>
 
-      </Router>
+          </Router>
       
       
     </div>

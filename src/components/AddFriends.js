@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState, useHistory } from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 const initialFriend = {
